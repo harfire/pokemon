@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import './assets/css/index.css';
+import 'bulma/css/bulma.css';
+import './assets/sass/main.scss';
 
 import Layout from './components/Layout.jsx';
 
