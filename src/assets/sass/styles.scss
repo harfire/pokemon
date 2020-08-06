@@ -1,0 +1,71 @@
+html {
+  font-family: sans-serif;
+}
+
+// css footer
+.footer {
+  width: 1440px;
+  height: 380px;
+  background-color: #959ddf;
+
+  h4,
+  li,
+  a {
+    line-height: 1.25;
+    color: #ffffff;
+  }
+
+  h4 {
+    font-weight: bold;
+  }
+  li {
+    font-weight: normal;
+    margin: 15px;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  .copyright {
+    color: #ffffff;
+    line-height: 1.25;
+  }
+}
+
+.pokemon-content {
+  .items-container {
+    min-height: 600px;
+
+    .button.load-more {
+      min-width: 150px;
+    }
+
+    .scrolled {
+      padding: 20px 10px;
+      overflow-y: scroll;
+      max-height: 660px;
+    }
+
+    .card.pokemon-item {
+      border-radius: 10px;
+      display: black;
+      overflow: hidden;
+      cursor: pointer;
+
+      .card-content {
+        padding: 0.5em;
+      }
+    }
+  }
+
+  .detail-cont {
+    position: relative;
+
+    .detail {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
