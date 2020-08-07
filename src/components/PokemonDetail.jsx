@@ -116,8 +116,7 @@ export default function PokemonDetail(props) {
 
             <div className='columns is-multiline is-gapless'>
               <div className='column is-full hd-image-cont'>
-                {/* <pre>{props.detail.other}</pre> */}
-                <div className='cont'>
+                <div className='cont bounce-4'>
                   <img src={props.detail.sprites.other.dream_world.front_default} alt={props.detail.name} />
                 </div>
               </div>

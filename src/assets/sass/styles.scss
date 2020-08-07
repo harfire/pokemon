@@ -254,17 +254,46 @@ body {
         height: 201px;
 
         .cont {
-          width: 90%;
           height: 100%;
           border-radius: 10px;
           overflow: hidden;
           display: flex;
           align-items: center;
           justify-content: center;
+          align-self: flex-end;
+          animation-duration: 2.25s;
+          animation-iteration-count: infinite;
+          background-color: transparent;
+          margin: 0 auto 0 40px;
+          transform-origin: bottom;
+          width: 200px;
 
           img {
             width: 90%;
             height: 90%;
+          }
+        }
+
+        .bounce-4 {
+          animation-name: bounce4;
+          animation-timing-function: ease;
+        }
+
+        @keyframes bounce4 {
+          0% {
+            transform: scale(1, 1) translateY(0);
+          }
+          10% {
+            transform: scale(1.05, 0.95) translateY(0);
+          }
+          30% {
+            transform: scale(0.95, 1.05) translateY(-20px);
+          }
+          50% {
+            transform: scale(1, 1) translateY(0);
+          }
+          100% {
+            transform: scale(1, 1) translateY(0);
           }
         }
       }
