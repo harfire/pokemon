@@ -125,7 +125,11 @@ export default function Content(props) {
   }, []);
 
   useEffect(() => {
-    if (!keyword) setPokemonList(() => pokemonListOriginal);
+    if (!keyword) {
+      setPokemonList(() => pokemonListOriginal);
+      setDataNotFound(false);
+      setIsFilteredList(false);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keyword]);
 
