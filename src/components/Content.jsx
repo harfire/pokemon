@@ -187,7 +187,7 @@ export default function Content(props) {
                   <form onSubmit={() => searchPokemonByKeyword()} className='form'>
                     <div className='field'>
                       <div className={loadingSearch ? `control is-loading` : 'control'}>
-                        <input onChange={(e) => setKeyword(e.target.value)} className={'input is-primary is-rounded is-small is-fullwidth'} type='text' placeholder='Search' disabled={loadingSearch ? true : false} />
+                        <input onChange={(e) => setKeyword(e.target.value)} className={'input is-rounded is-small is-fullwidth'} type='text' placeholder='Search' disabled={loadingSearch ? true : false} />
                       </div>
                     </div>
                   </form>
