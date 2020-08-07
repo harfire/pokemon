@@ -56,9 +56,6 @@ export default function PokemonDetail(props) {
               <div className='column is-two-fifths has-text-weight-bold is-size-7'>Name</div>
               <div className='column is-half is-size-6 has-text-weight-bold is-capitalized'>{props.detail.name}</div>
 
-              <div className='column is-two-fifths has-text-weight-bold is-size-7'>Species</div>
-              <div className='column is-half is-size-7 is-capitalized'>{props.detail.species.name}</div>
-
               <div className='column is-two-fifths has-text-weight-bold is-size-7'>Height</div>
               <div className='column is-half is-size-7'>{props.detail.height} ft</div>
 
