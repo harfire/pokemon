@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
 // Set your colors
 $purple: #8a4d76;
@@ -71,7 +71,7 @@ $link: $primary !default;
 $link-hover: darken($success, 15%) !default;
 
 // Update Bulma's global variables
-$family-sans-serif: "Open Sans", sans-serif;
+$family-sans-serif: "Share Tech Mono", sans-serif;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
