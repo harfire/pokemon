@@ -62,7 +62,7 @@ export default function Content(props) {
 
       if (isSearch && keyword) {
         setDataNotFound(true);
-        // setPokemonList(() => []);
+        setPokemonList(() => []);
       }
     } finally {
       setInitLoading(false);
@@ -106,7 +106,6 @@ export default function Content(props) {
 
   const searchPokemonByKeyword = () => {
     if (keyword) {
-      console.log('abc', keyword);
       setLoadingSearch(true);
       setIsFilteredList(true);
       getData({}, 'pokemon', keyword.trim().toLocaleLowerCase(), true);
