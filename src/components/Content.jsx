@@ -62,7 +62,7 @@ export default function Content(props) {
 
       if (isSearch && keyword) {
         setDataNotFound(true);
-        setPokemonList(() => []);
+        // setPokemonList(() => []);
       }
     } finally {
       setInitLoading(false);
@@ -106,6 +106,7 @@ export default function Content(props) {
 
   const searchPokemonByKeyword = () => {
     if (keyword) {
+      console.log('abc', keyword);
       setLoadingSearch(true);
       setIsFilteredList(true);
       getData({}, 'pokemon', keyword.trim().toLocaleLowerCase(), true);
@@ -155,7 +156,7 @@ export default function Content(props) {
           ) : (
             <div className='column is-full'>
               <div className='columns is-variable is-2 is-multiline'>
-                <div className='column is-one-third'>
+                <div className='column is-one-quarter'>
                   <div className='control'>
                     <div className='select is-rounded is-small is-fullwidth'>
                       <select onChange={(e) => filteredPokemonListBy(e, 'type')}>
@@ -171,7 +172,7 @@ export default function Content(props) {
                     </div>
                   </div>
                 </div>
-                <div className='column is-one-third'>
+                <div className='column is-one-quarter'>
                   <div className='control'>
                     <div className='select is-rounded is-small is-fullwidth'>
                       <select onChange={(e) => filteredPokemonListBy(e, 'ability')}>
@@ -187,14 +188,17 @@ export default function Content(props) {
                     </div>
                   </div>
                 </div>
-                <div className='column is-one-third'>
-                  <form onSubmit={() => searchPokemonByKeyword()} className='form'>
-                    <div className='field'>
-                      <div className={loadingSearch ? `control is-loading` : 'control'}>
-                        <input onChange={(e) => setKeyword(e.target.value)} className={'input is-rounded is-small is-fullwidth'} type='text' placeholder='Search' disabled={loadingSearch ? true : false} />
-                      </div>
+                <div className='column is-half'>
+                  <div className='field has-addons'>
+                    <div className={loadingSearch ? `control is-loading is-expanded` : 'control is-expanded'}>
+                      <input onChange={(e) => setKeyword(e.target.value)} className={'input is-rounded is-small is-fullwidth'} type='text' placeholder='Search' disabled={loadingSearch ? true : false} />
                     </div>
-                  </form>
+                    <div className='control'>
+                      <button onClick={() => searchPokemonByKeyword()} style={{ padding: '0 8px 0 5px', height: '30px' }} className='button is-small is-primary is-rounded'>
+                        Search
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className='columns is-multiline list-cont'>
