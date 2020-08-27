@@ -104,7 +104,9 @@ export default function Content(props) {
     }
   };
 
-  const searchPokemonByKeyword = () => {
+  const searchPokemonByKeyword = (e) => {
+    e.preventDefault();
+
     if (keyword) {
       setLoadingSearch(true);
       setIsFilteredList(true);
@@ -188,16 +190,18 @@ export default function Content(props) {
                   </div>
                 </div>
                 <div className='column is-half'>
-                  <div className='field has-addons'>
-                    <div className={loadingSearch ? `control is-loading is-expanded` : 'control is-expanded'}>
-                      <input onChange={(e) => setKeyword(e.target.value)} className={'input is-rounded is-small is-fullwidth'} type='text' placeholder='Search' disabled={loadingSearch ? true : false} />
+                  <form onSubmit={(e) => searchPokemonByKeyword(e)}>
+                    <div className='field has-addons'>
+                      <div className={loadingSearch ? `control is-loading is-expanded` : 'control is-expanded'}>
+                        <input onChange={(e) => setKeyword(e.target.value)} className={'input is-rounded is-small is-fullwidth'} type='text' placeholder='Search' disabled={loadingSearch ? true : false} />
+                      </div>
+                      <div className='control'>
+                        <button type='submit' style={{ padding: '0 8px 0 5px', height: '30px' }} className='button is-small is-primary is-rounded'>
+                          Search
+                        </button>
+                      </div>
                     </div>
-                    <div className='control'>
-                      <button onClick={() => searchPokemonByKeyword()} style={{ padding: '0 8px 0 5px', height: '30px' }} className='button is-small is-primary is-rounded'>
-                        Search
-                      </button>
-                    </div>
-                  </div>
+                  </form>
                 </div>
               </div>
               <div className='columns is-multiline list-cont'>
