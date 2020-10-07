@@ -4,13 +4,13 @@ import Content from './Content';
 import Footer from './Footer';
 
 function Layout() {
-	return (
-		<div className="container is-fluid" id="pokemon-container">
-			<Header />
-			<Content />
-			<Footer />
-		</div>
-	);
+  return (
+    <div className="container is-fluid" id="pokemon-container">
+      <Header />
+      <Content />
+      <Footer />
+    </div>
+  );
 }
 
 export default Layout;
