@@ -4,7 +4,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bulma/css/bulma.css';
 import './assets/sass/main.scss';
 
-import Layout from './components/Layout.jsx';
+import Layout from './components/Layout';
 
 ReactDOM.render(<Layout />, document.getElementById('root'));
 
