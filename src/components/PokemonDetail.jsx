@@ -1,32 +1,32 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function PokemonDetail(props) {
+function PokemonDetail({ detail }) {
   let images = [];
-  if (props && props.detail && props.detail.sprites) {
-    images = Object.values(props.detail.sprites).filter((val) => typeof val === 'string' && val);
+
+  if (detail && detail.sprites) {
+    images = Object.values(detail.sprites).filter((val) => typeof val === 'string' && val);
   }
 
   return (
     <div className="columns is-multiline is-variable is-6 detail-content">
-      {!props.detail ? (
+      {!detail || !images ? (
         <div className="column is-full is-size-5">Pick your Pokemon!</div>
       ) : (
         <>
           <div className="column is-half">
             <div id="slideshow" className="card">
               <ul>
-                {images && images.length
-                  ? images.map((val, i) => (
-                      <li key={`image-${i}`}>
-                        <a id={`slider-${i}`} href={`#slider-display-${i}`}>
-                          &#x25C9;
-                        </a>
-                        <p id={`slider-display-${i}`}>
-                          <img src={val} alt={`slider-${i}`} />
-                        </p>
-                      </li>
-                    ))
-                  : undefined}
+                {images.length &&
+                  images.map((val, i) => (
+                    <li key={`image-${i}`}>
+                      <a id={`slider-${i}`} href={`#slider-display-${i}`}>
+                        &#x25C9;
+                      </a>
+                      <p id={`slider-display-${i}`}>
+                        <img src={val} alt={`slider-${i}`} />
+                      </p>
+                    </li>
+                  ))}
               </ul>
             </div>
             <div className="is-clearfix m-t-50">&nbsp;</div>
@@ -38,7 +38,7 @@ export default function PokemonDetail(props) {
             <div className="columns is-gapless is-multiline moves-cont">
               <div className="column is-full">
                 <div className="columns is-gapless is-multiline">
-                  {props.detail.moves.map((val, i) => (
+                  {detail.moves.map((val, i) => (
                     <div key={`item-move-${i}`} className="column is-half moves">
                       <div className="item-moves">{val.move.name}</div>
                     </div>
@@ -54,20 +54,20 @@ export default function PokemonDetail(props) {
               </div>
 
               <div className="column is-two-fifths has-text-weight-bold is-size-7">Name</div>
-              <div className="column is-half is-size-6 has-text-weight-bold is-capitalized">{props.detail.name}</div>
+              <div className="column is-half is-size-6 has-text-weight-bold is-capitalized">{detail.name}</div>
 
               <div className="column is-two-fifths has-text-weight-bold is-size-7">Height</div>
-              <div className="column is-half is-size-7">{props.detail.height} ft</div>
+              <div className="column is-half is-size-7">{detail.height} ft</div>
 
               <div className="column is-two-fifths has-text-weight-bold is-size-7">Weight</div>
-              <div className="column is-half is-size-7">{props.detail.weight} kg</div>
+              <div className="column is-half is-size-7">{detail.weight} kg</div>
 
               <div className="column is-two-fifths has-text-weight-bold is-size-7">Experience</div>
-              <div className="column is-half is-size-7">{props.detail.base_experience}</div>
+              <div className="column is-half is-size-7">{detail.base_experience}</div>
 
               <div className="column is-two-fifths has-text-weight-bold is-size-7">Abilities</div>
               <div className="column is-half is-size-7">
-                {props.detail.abilities.map((val, i) => (
+                {detail.abilities.map((val, i) => (
                   <div key={`item-abilities-${i}`} className="is-clearfix is-capitalized">
                     <span className="icon is-small has-text-danger m-r-5">
                       <i className="fab fa-superpowers" />
@@ -83,7 +83,7 @@ export default function PokemonDetail(props) {
                 <h3 className="has-text-weight-bold is-size-5 has-text-primary">Types</h3>
               </div>
 
-              {props.detail.types.map((val, i) => (
+              {detail.types.map((val, i) => (
                 <React.Fragment key={`item-stat-name-${i}`}>
                   <div className="column is-one-third has-text-weight-bold is-size-7 m-b-5 is-capitalized">
                     <span className="icon is-small has-text-warning m-r-5">
@@ -100,7 +100,7 @@ export default function PokemonDetail(props) {
                 <h3 className="has-text-weight-bold is-size-5 has-text-primary">Statistic</h3>
               </div>
 
-              {props.detail.stats.map((val, i) => (
+              {detail.stats.map((val, i) => (
                 <React.Fragment key={`item-stat-name-${i}`}>
                   <div className="column is-two-fifths has-text-weight-bold is-size-7 m-b-5 is-capitalized">
                     {val.stat.name}
@@ -119,7 +119,7 @@ export default function PokemonDetail(props) {
             <div className="columns is-multiline is-gapless">
               <div className="column is-full hd-image-cont">
                 <div className="cont bounce-4">
-                  <img src={props.detail.sprites.other.dream_world.front_default} alt={props.detail.name} />
+                  <img src={detail.sprites.other.dream_world.front_default} alt={detail.name} />
                 </div>
               </div>
             </div>
@@ -129,3 +129,5 @@ export default function PokemonDetail(props) {
     </div>
   );
 }
+
+export default memo(PokemonDetail);
