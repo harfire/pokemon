@@ -11,28 +11,9 @@ body {
 
 // css footer
 .footer {
-  width: 1440px;
-  height: 380px;
-  background-color: #959ddf;
+  background: transparent;
 
-  h4,
-  li,
-  a {
-    line-height: 1.25;
-    color: #ffffff;
-  }
-
-  h4 {
-    font-weight: bold;
-  }
-  li {
-    font-weight: normal;
-    margin: 15px;
-  }
-
-  hr {
-    width: 100%;
-  }
+  padding: 0 0 30px 0;
 
   .copyright {
     color: #ffffff;

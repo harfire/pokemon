@@ -1,6 +1,10 @@
-import { renderHook } from '@testing-library/react-hooks';
+import React from 'react';
+import { render } from '@testing-library/react';
 import Header from '../../components/Header';
 
-test('Component => Header', () => {
-  const { result } = renderHook(() => Header()); // eslint-disable-line
+test('Component => Header is mounted', () => {
+  const { getByText } = render(<Header />);
+  const element = getByText(/Pokédex/i);
+
+  expect(element).toBeInTheDocument();
 });
