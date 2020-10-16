@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function PokemonItem(props) {
+const PokemonItem = (props) => {
   return (
     <div className="column is-one-quarter">
       <div onClick={() => props.openDetailPokemon(props.data.name)} className="card pokemon-item">
@@ -18,4 +18,6 @@ export default function PokemonItem(props) {
       </div>
     </div>
   );
-}
+};
+
+export default memo(PokemonItem);
