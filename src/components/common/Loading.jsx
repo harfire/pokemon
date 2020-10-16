@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default function Loading() {
+const Loading = memo(() => {
   return (
     <>
       <span>Loading... </span>
@@ -9,4 +9,6 @@ export default function Loading() {
       </span>
     </>
   );
-}
+});
+
+export default Loading;

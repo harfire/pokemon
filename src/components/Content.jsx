@@ -161,6 +161,7 @@ export default function Content() {
             </div>
           ) : (
             <div className="column is-full">
+              {/* Pokemon Detail */}
               <div className="columns is-variable is-2 is-multiline">
                 <div className="column is-one-quarter">
                   <div className="control">
@@ -223,6 +224,8 @@ export default function Content() {
                   </form>
                 </div>
               </div>
+
+              {/* Pokemon Item */}
               <div className="columns is-multiline list-cont">
                 {loadingOverlay && (
                   <div className="column overlay-loading">
@@ -245,6 +248,8 @@ export default function Content() {
                   </div>
                 )}
               </div>
+
+              {/* Load more button */}
               {pokemonList && pokemonList.length && !isFilteredList ? (
                 <div className="columns is-multiline">
                   <div className="column is-full has-text-centered">
