@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import constructImageUrl from '../helpers/constructImageUrl';
 import getPokemonId from '../helpers/getPokemonId';
 import getAPI from '../utils/getAPI';
 import LoadingUi from './common/Loading';
-import PokemonItem from './PokemonItem';
 import PokemonDetail from './PokemonDetail';
+import PokemonItem from './PokemonItem';
 
 export default function Content() {
   const [initLoading, setInitLoading] = useState(true);
