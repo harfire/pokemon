@@ -24,13 +24,12 @@ export default function Content() {
 
   const delayValue = 500;
 
-  const constructDataList = (data, isByType) => {
-    return data.map((val) => ({
+  const constructDataList = (data, isByType) =>
+    data.map((val) => ({
       name: isByType ? val.pokemon.name : val.name,
       url: isByType ? val.pokemon.url : val.url,
       img: constructImageUrl(isByType ? val.pokemon.url : val.url)
     }));
-  };
 
   async function getData(params = {}, endpointParam = '', pokemonName = '', isSearch = '') {
     try {

@@ -15,9 +15,7 @@ export default async function getAPI(method, url, params) {
 
       return {};
     })
-    .catch((error) => {
-      return error;
-    });
+    .catch((error) => error);
 
   return result;
 }
